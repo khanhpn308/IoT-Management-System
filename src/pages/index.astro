@@ -1,0 +1,116 @@
+---
+import MainLayout from '../layouts/main.astro';
+import Navbar from '../components/Navbar';
+import { Cpu, BarChart3, Shield, Zap } from 'lucide-react';
+import { baseUrl } from '../lib/base-url';
+---
+
+<MainLayout>
+  <Navbar client:only="react" />
+  
+  <div class="min-h-screen bg-slate-900">
+    <!-- Hero Section -->
+    <div class="relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-slate-900"></div>
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div class="text-center">
+          <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 font-heading">
+            IoT Management System
+          </h1>
+          <p class="text-xl text-slate-300 mb-8 max-w-3xl mx-auto">
+            Comprehensive device monitoring, real-time analytics, and seamless user management 
+            for your industrial IoT infrastructure
+          </p>
+          <div class="flex gap-4 justify-center">
+            <a
+              href={`${baseUrl}/dashboard`}
+              class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-md text-lg font-medium transition-colors"
+            >
+              Go to Dashboard
+            </a>
+            <a
+              href={`${baseUrl}/login`}
+              class="bg-slate-700 hover:bg-slate-600 text-white px-8 py-3 rounded-md text-lg font-medium transition-colors"
+            >
+              Login
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-blue-500 transition-colors">
+          <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
+            <Cpu className="w-6 h-6 text-blue-400" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 font-heading">Device Management</h3>
+          <p class="text-slate-400">
+            Monitor and control all your IoT devices from a single, intuitive interface
+          </p>
+        </div>
+
+        <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-blue-500 transition-colors">
+          <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
+            <BarChart3 className="w-6 h-6 text-blue-400" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 font-heading">Real-time Analytics</h3>
+          <p class="text-slate-400">
+            Track temperature, humidity, and other metrics with live charts and insights
+          </p>
+        </div>
+
+        <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-blue-500 transition-colors">
+          <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
+            <Shield className="w-6 h-6 text-blue-400" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 font-heading">Secure Access</h3>
+          <p class="text-slate-400">
+            Enterprise-grade security with user authentication and role-based permissions
+          </p>
+        </div>
+
+        <div class="bg-slate-800 border border-slate-700 rounded-lg p-6 hover:border-blue-500 transition-colors">
+          <div class="w-12 h-12 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4">
+            <Zap className="w-6 h-6 text-blue-400" />
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 font-heading">Instant Alerts</h3>
+          <p class="text-slate-400">
+            Get notified immediately when device status changes or thresholds are exceeded
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Stats -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="bg-slate-800 border border-slate-700 rounded-lg p-8">
+        <h2 class="text-3xl font-bold text-white mb-8 text-center font-heading">System Overview</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="text-4xl font-bold text-blue-400 mb-2">24</div>
+            <div class="text-slate-400">Active Devices</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-green-400 mb-2">98.5%</div>
+            <div class="text-slate-400">Uptime</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-purple-400 mb-2">15</div>
+            <div class="text-slate-400">Registered Users</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>
+
+<style>
+  .lucide {
+    display: inline-block;
+  }
+</style>
+
+
