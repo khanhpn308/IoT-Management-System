@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - IoT Management System</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>IoT Manager</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+                <li><a href="devices.html" class="nav-link">Devices</a></li>
+                <li><a href="users.html" class="nav-link">User Management</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn btn-secondary btn-sm" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="container">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Dashboard</h1>
+        </div>
+
+        <!-- Device Status Summary -->
+        <div class="status-grid">
+            <div class="status-card">
+                <div class="status-header">
+                    <span class="status-label">Total Devices</span>
+                    <span class="status-indicator" style="background-color: #3b82f6;"></span>
+                </div>
+                <div class="status-value" id="totalDevices">24</div>
+            </div>
+
+            <div class="status-card">
+                <div class="status-header">
+                    <span class="status-label">Online</span>
+                    <span class="status-indicator online"></span>
+                </div>
+                <div class="status-value text-success" id="onlineDevices">21</div>
+            </div>
+
+            <div class="status-card">
+                <div class="status-header">
+                    <span class="status-label">Offline</span>
+                    <span class="status-indicator offline"></span>
+                </div>
+                <div class="status-value text-danger" id="offlineDevices">3</div>
+            </div>
+
+            <div class="status-card">
+                <div class="status-header">
+                    <span class="status-label">Alerts</span>
+                    <span class="status-indicator warning"></span>
+                </div>
+                <div class="status-value text-warning" id="alertsCount">2</div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-grid">
+            <!-- Temperature Chart -->
+            <div class="chart-card">
+                <h2 class="chart-title">Temperature Trends</h2>
+                <div class="chart-container">
+                    <canvas id="temperatureChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Humidity Chart -->
+            <div class="chart-card">
+                <h2 class="chart-title">Humidity Trends</h2>
+                <div class="chart-container">
+                    <canvas id="humidityChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="activity-card">
+            <h2 class="activity-title">Recent Activity</h2>
+            <div class="activity-list" id="activityList">
+                <div class="activity-item">
+                    <div class="activity-content">
+                        <span class="activity-dot success"></span>
+                        <span>Device DEV-001 came online</span>
+                    </div>
+                    <span class="activity-time">2 minutes ago</span>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-content">
+                        <span class="activity-dot warning"></span>
+                        <span>Temperature alert: DEV-005 exceeded threshold</span>
+                    </div>
+                    <span class="activity-time">15 minutes ago</span>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-content">
+                        <span class="activity-dot danger"></span>
+                        <span>Device DEV-012 went offline</span>
+                    </div>
+                    <span class="activity-time">1 hour ago</span>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-content">
+                        <span class="activity-dot info"></span>
+                        <span>New user registered: user@example.com</span>
+                    </div>
+                    <span class="activity-time">3 hours ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

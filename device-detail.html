@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Details - IoT Management System</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>IoT Manager</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="devices.html" class="nav-link active">Devices</a></li>
+                <li><a href="users.html" class="nav-link">User Management</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn btn-secondary btn-sm" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Device Details Content -->
+    <div class="container">
+        <div class="dashboard-header">
+            <a href="devices.html" class="btn btn-secondary">← Back to Devices</a>
+            <h1 class="dashboard-title" id="deviceTitle">Device Details</h1>
+        </div>
+
+        <!-- Device Info -->
+        <div class="status-grid" style="margin-bottom: 2rem;">
+            <div class="status-card">
+                <div class="status-label">Device ID</div>
+                <div class="status-value" style="font-size: 1.25rem;" id="deviceId">-</div>
+            </div>
+            <div class="status-card">
+                <div class="status-label">Status</div>
+                <div id="deviceStatus">-</div>
+            </div>
+            <div class="status-card">
+                <div class="status-label">Type</div>
+                <div class="status-value" style="font-size: 1.25rem;" id="deviceType">-</div>
+            </div>
+            <div class="status-card">
+                <div class="status-label">Last Seen</div>
+                <div class="status-value" style="font-size: 1.25rem;" id="lastSeen">-</div>
+            </div>
+        </div>
+
+        <!-- Current Readings -->
+        <div class="chart-card" style="margin-bottom: 2rem;">
+            <h2 class="chart-title">Current Readings</h2>
+            <div class="status-grid">
+                <div class="status-card">
+                    <div class="status-label">Temperature</div>
+                    <div class="status-value" style="font-size: 2rem; color: var(--primary-color);" id="currentTemp">22.5°C</div>
+                </div>
+                <div class="status-card">
+                    <div class="status-label">Humidity</div>
+                    <div class="status-value" style="font-size: 2rem; color: var(--success-color);" id="currentHumidity">48%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Historical Data Charts -->
+        <div class="charts-grid">
+            <div class="chart-card">
+                <h2 class="chart-title">Temperature History</h2>
+                <div class="chart-container">
+                    <canvas id="deviceTempChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <h2 class="chart-title">Humidity History</h2>
+                <div class="chart-container">
+                    <canvas id="deviceHumidityChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/device-detail.js"></script>
+</body>
+</html>

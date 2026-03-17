@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devices - IoT Management System</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h2>IoT Manager</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+                <li><a href="devices.html" class="nav-link active">Devices</a></li>
+                <li><a href="users.html" class="nav-link">User Management</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="btn btn-secondary btn-sm" onclick="logout()">Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Devices Content -->
+    <div class="container">
+        <div class="dashboard-header">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h1 class="dashboard-title">Devices</h1>
+                <button class="btn btn-primary" onclick="openAddDeviceModal()">Add Device</button>
+            </div>
+        </div>
+
+        <!-- Devices Table -->
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Device ID</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Last Seen</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="devicesTableBody">
+                    <!-- Will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add Device Modal -->
+    <div id="addDeviceModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Add New Device</h2>
+                <button class="modal-close" onclick="closeAddDeviceModal()">&times;</button>
+            </div>
+            <form id="addDeviceForm" onsubmit="handleAddDevice(event)">
+                <div class="form-group">
+                    <label class="form-label">Device ID</label>
+                    <input type="text" class="form-input" name="deviceId" required placeholder="DEV-001">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Device Name</label>
+                    <input type="text" class="form-input" name="deviceName" required placeholder="Temperature Sensor">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Device Type</label>
+                    <input type="text" class="form-input" name="deviceType" required placeholder="Temperature Sensor">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Location</label>
+                    <input type="text" class="form-input" name="location" placeholder="Building A, Floor 2">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Add Device</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/devices.js"></script>
+</body>
+</html>
