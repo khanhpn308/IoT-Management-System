@@ -26,13 +26,17 @@
     </nav>
 
     <!-- Users Content -->
-    <div class="container">
-        <div class="dashboard-header">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <h1 class="dashboard-title">User Management</h1>
-                <button class="btn btn-primary" onclick="openAddUserModal()">Add User</button>
+    <div class="dashboard-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+        <h1 class="dashboard-title" >User Management</h1>
+        
+        <div style="display: flex; gap: 15px; align-items: center;">
+            <div style="display: flex; gap: 5px;">
+                <input type="text" id="searchInput" class="form-input" placeholder="Search NV00001..." style="width: 250px; margin: 0;">
+                <button id="searchBtn" class="btn btn-secondary">Search</button>
             </div>
+            <button id="addUserBtn" class="btn btn-primary" onclick="openAddUserModal()" style="display: none; white-space: nowrap;">Add User</button>
         </div>
+    </div>
 
         <!-- Users Table -->
         <div class="table-container">
@@ -40,7 +44,7 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Email</th>
+                        <th>Username</th>
                         <th>Role</th>
                         <th>Status</th>
                         <th>Registered</th>
@@ -64,22 +68,26 @@
             <form id="addUserForm" onsubmit="handleAddUser(event)">
                 <div class="form-group">
                     <label class="form-label">Full Name</label>
-                    <input type="text" class="form-input" name="name" required placeholder="John Doe">
+                    <input type="text" class="form-input" name="name" required placeholder="Nguyễn Văn A">
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Email</label>
-                    <input type="email" class="form-input" name="email" required placeholder="user@example.com">
+                    <label class="form-label">Username</label>
+                    <input type="text" class="form-input" name="username" required pattern="^NV\d{5}$" placeholder="NV00001">
                 </div>
                 <div class="form-group">
                     <label class="form-label">Role</label>
                     <select class="form-input" name="role" required>
-                        <option value="user">User</option>
-                        <option value="admin">Admin</option>
+                        <option value="User">User</option>
+                        <option value="Admin">Admin</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label class="form-label">Temporary Password</label>
-                    <input type="password" class="form-input" name="password" required placeholder="Enter temporary password" minlength="6">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" name="password" required placeholder="Enter password" minlength="6">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" class="form-input" name="confirmPassword" required placeholder="Confirm password">
                 </div>
                 <button type="submit" class="btn btn-primary" style="width: 100%;">Add User</button>
             </form>
